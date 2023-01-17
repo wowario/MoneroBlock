@@ -1,4 +1,9 @@
 <div class="w_700px">
+	<div>
+		<form action="/search" method="get">
+			<input class="search" type="text" name="q" placeholder="Search transactions or blocks">
+		</form>
+	</div>
 	<h2>Network stats</h2>
 	<table style="width: 100%;">
 		<tr>
@@ -17,7 +22,14 @@
 				</div>
 			</td>
 			<td>
-				<div class="stat-box">All-time transactions
+				<div class="stat-box">Pool Size
+					<div>
+						$poolsize
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="stat-box">Transactions
 					<div>
 						$txnr
 					</div>

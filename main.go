@@ -44,7 +44,7 @@ import (
 const Version string = "0.1.2"
 
 // Monero network settings
-const BlockTime int = 120
+const BlockTime int = 300
 
 var listenAddress, ProxyToUse, DaemonUrl, RpcLogin string
 
@@ -64,7 +64,7 @@ func main() {
 	flag.StringVar(&listenAddress, "bind", "127.0.0.1:31312", "Address and port to bind.")
 	flag.StringVar(&ProxyToUse, "proxy", "none", "Proxy to use. Should start with socks5://, socks4:// or http:// .")
 	flag.StringVar(&RpcLogin, "rpc-login", "none", "Required if daemon has login enabled.")
-	flag.StringVar(&DaemonUrl, "daemon", "127.0.0.1:18081", "The Monero daemon URL. Please note that using a third-party daemon might harm privacy if you do not use a proxy.")
+	flag.StringVar(&DaemonUrl, "daemon", "127.0.0.1:34568", "The Monero daemon URL. Please note that using a third-party daemon might harm privacy if you do not use a proxy.")
 	flag.Parse()
 
 	if RpcLogin != "none" {
@@ -99,10 +99,10 @@ func main() {
 
 		info := GetInfo()
 		pageOut := strings.Replace(MainPage, "$blocks", blocksList, 1)
-
-		pageOut = strings.Replace(pageOut, "$diff", strconv.FormatUint(info.Difficulty/1000/1000, 10)+" M", 1)
+		pageOut = strings.Replace(pageOut, "$diff", strconv.FormatFloat(float64(info.Difficulty/1000/1000)/1000, 'f', 2, 64)+" B", 1)
+		pageOut = strings.Replace(pageOut, "$poolsize", strconv.FormatFloat(float64(info.TxPoolSize)/1000, 'f', 3, 64), 1)
 		pageOut = strings.Replace(pageOut, "$txnr", strconv.FormatUint(info.TxCount/1000, 10)+"k", 1)
-		pageOut = strings.Replace(pageOut, "$hashrate", strconv.FormatUint(info.Difficulty/1000/1000/uint64(BlockTime), 10)+" MH/s", 1)
+		pageOut = strings.Replace(pageOut, "$hashrate", strconv.FormatFloat(float64(info.Difficulty/1000/1000)/300, 'f', 3, 64)+" MH/s", 1)
 
 		res.Header().Set("Content-Type", "text/html")
 		res.Write([]byte(pageOut))
@@ -203,10 +203,10 @@ func main() {
 		o := strings.Replace(BlockPage, "$blocknum", strconv.FormatUint(blockData.Height, 10), 1)
 		o = strings.Replace(o, "$hash", blockData.Hash, 1)
 		o = strings.Replace(o, "$numtxes", strconv.FormatUint(uint64(blockData.NumTxes), 10), 1)
-		o = strings.Replace(o, "$size", strconv.FormatFloat(float64(blockData.BlockSize)/1000, 'f', 1, 64), 1)
+		o = strings.Replace(o, "$size", strconv.FormatFloat(float64(blockData.BlockSize)/1000, 'f', 6, 64), 1)
 		o = strings.Replace(o, "$timestamp", time.Unix(blockData.Timestamp, 0).Format("2006-01-02 15:04"), 1)
-		o = strings.Replace(o, "$diff", strconv.FormatUint(blockData.Difficulty/1000/1000, 10), 1)
-		o = strings.Replace(o, "$reward", strconv.FormatFloat(float64(blockData.Reward)/math.Pow(10, 12), 'f', 5, 64), 1)
+		o = strings.Replace(o, "$diff", strconv.FormatUint(blockData.Difficulty, 10), 1)
+		o = strings.Replace(o, "$reward", strconv.FormatFloat(float64(blockData.Reward)/math.Pow(10, 11), 'f', 6, 64), 1)
 		o = strings.Replace(o, "$minerTx", blockD.MinerTxHash, 2)
 
 		var txList string = ""

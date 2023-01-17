@@ -1,11 +1,11 @@
 :root {
-	--main: #fa6800;
-	--main-dark: #b95818;
-	--main-bright: #ff862f;
+	--main: #e983d8;
+	--main-dark: #ae388b;
+	--main-bright: #FFBF00;
 
-	--gray1: #eeeeee;
-	--gray2: #dddddd;
-	--gray3: #cccccc;
+	--gray1: #dc74dc;
+	--gray2: #b75fd2;
+	--gray3: #de69de;
 }
 
   
@@ -34,16 +34,20 @@ h1 {
 	font-size: 45px;
 	font-weight: bold;
 	margin: 0px;
+	color: #e983d8;
 }
 .title2 {
-	color: var(--main)
+	color: #FFBF00;
 }
 .search {
 	width: 100%;
-	padding: 5px;
 	margin-top: 10px;
-	border-radius: 5px;
-	border: 1px solid #aaa;
+	padding: 10px;
+	max-width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 10px;
+	border: 5px solid #e983d8;
 }
 .w_700px {
 	width: 100%;
@@ -59,10 +63,10 @@ a:hover {
 	color:#003775;
 }
 .site_header>a{
-	color:black
+	color: #FFBF00
 }
 .tr > th {
-	background-color: var(--main-bright);
+	background-color: #e983d8;
 	height: 40px;
 	font-weight: normal;
 	font-size: 18px;
@@ -107,16 +111,16 @@ a:hover {
 	top: 49px;
 }
 .stat-box {
-	width: 200px;
+	width: 150px;
 	background-color: var(--gray1);
 	text-align: center;
 	border: 1px solid var(--gray3);
 	border-radius: 10px;
-	padding: 5px;
+	padding: 2px;
 }
 .stat-box > div {
 	margin: 5px;
-	padding: 5px;
+	padding: 2px;
 	background-color: white;
 	background-image: linear-gradient(90deg, #eee 0%, #fff 5%, #fff 95%, #eee 100%);
 }
