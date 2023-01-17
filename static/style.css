@@ -128,3 +128,11 @@ a:hover {
 	display: grid;
 	grid-template-columns: auto auto auto;
 }
+
+img {
+	position:fixed;
+	width: 400px;
+	bottom: 0;
+	right: 0;
+	z-index:-1;
+}
