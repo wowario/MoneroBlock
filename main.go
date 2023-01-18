@@ -157,7 +157,7 @@ func main() {
 		o := strings.Replace(TxPage, "$confirmations", confirmations, 1)
 		height := strconv.FormatUint(txData.BlockHeight, 10)
 		o = strings.Replace(o, "$height", height, 2)
-		txSize := strconv.FormatFloat(float64(len(txData.AsHex))/2/1000, 'f', 2, 64)
+		txSize := strconv.FormatFloat(float64(len(txData.AsHex))/2/1000, 'f', 6, 64)
 		o = strings.Replace(o, "$size", txSize, 1)
 		o = strings.Replace(o, "$txid", txData.TxHash, 1)
 

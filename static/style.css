@@ -36,6 +36,20 @@ h1 {
 	margin: 0px;
 	color: #e983d8;
 }
+h3 {
+	font-family: "Papyrus", Fantasy;
+	font-size: 25px;
+	font-weight: bold;
+	margin: 3px;
+	color: #FFBF00;
+}
+h4 {
+	font-family: "Lucida Handwriting", Cursive;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 3px;
+	color: #ae388b;
+}
 .title2 {
 	color: #FFBF00;
 }
@@ -54,6 +68,7 @@ h1 {
 	max-width: 700px;
 	margin-right: auto;
 	margin-left: auto;
+	margin-top: 50px;
 }
 a {
 	text-decoration: none;
@@ -70,6 +85,7 @@ a:hover {
 	height: 40px;
 	font-weight: normal;
 	font-size: 18px;
+	color: #ffffff;
 }
 
 .listTable {
@@ -135,4 +151,29 @@ img {
 	bottom: 0;
 	right: 0;
 	z-index:-1;
+}
+
+.res-circle {
+	width: 100%;
+	border-radius: 50%;
+	background: #dc74dc;
+	line-height: 0;
+	position: relative;
+}
+
+.res-circle::after {
+	content: "";
+	display: block;
+	padding-bottom: 100%;
+}
+
+.circle-txt {
+	position: absolute;
+	bottom: 50%;
+	width: 100%;
+	text-align: center;
+	font-family: "Papyrus", Fantasy;
+	font-weight: bold;
+	font-size: 40px;
+	color: #ffffff;
 }

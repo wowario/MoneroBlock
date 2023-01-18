@@ -1,14 +1,6 @@
 <div class="w_700px">
-	<h2>Transaction <span style="font-size:14px;">$txid</span></h2>
+	<h2>Block <a href="/block?id=$height">$height</a></h2>
 	<table>
-		<tr>
-			<td style="width:140px">Confirmations</td>
-			<td>$confirmations</td>
-		</tr>
-		<tr>
-			<td>Included in block</td>
-			<td><a href="/block?id=$height">$height</a></td>
-		</tr>
 		<tr>
 			<td>Date and time</td>
 			<td>$timestamp</td>
@@ -18,8 +10,13 @@
 			<td>$size kB</td>
 		</tr>
 		<tr>
-			<td>Double-spend</td>
-			<td>$doublespend</td>
+			<td><br><br>
+			<div class="res-circle">
+				<div class="circle-txt">$confirmations</div>
+			</div>
+				<h3>Confirmations</h3>
+			</td>
 		</tr>
-	</table>
+	</table><br><br>
+	Transaction ID: <br><h4>$txid</h4>
 </div>
